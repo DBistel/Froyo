@@ -5,16 +5,21 @@ const userInput = prompt(
 typeof userInput === "string" //check to make sure input is a string not an int
 const flavors = userInput.split(","); // recognizes comma as a delimiter to separate in array
 
-function flavorCount (arr){
-    const flavors = {};
-    for (const num of arr){
-        if (num in flavors){
-            return true;
+const flavorCount = (arr) => {
+    const obj = {};
+    for (const flavor of arr){
+        if (flavor in obj){
+            obj [flavor] += 1;
+        } else {
+            obj [flavor] = 1;
         }
-        flavors[num] = num;
+        
     }
-    return false;
+    return obj;
 };
+
+ console.table(flavorCount(flavors));
+
 
 
 
